@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel='stylesheet' href=styl.css>
+		<meta charset='utf-8'>
+		<title>Rozklad strony JAZDA z stronami!!</title>
+	</head>
+	<body>
+		<div id='gora'> 
+			<script> 
+				const months = ["Styczeń","Luty","Marzec","Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień"];
+				const data = new Date();
+				var dzien=data.getDate();
+				var miesiac=months[data.getMonth()];
+				var rok=data.getFullYear();
+				document.write(dzien+' ');
+				document.write(miesiac+' ');
+				document.write(rok);
+			</script>
+			<br>
+			<h2>Uciekający Czas</h2>
+			<div id = "zegar" style="width:100px; border: solid 2px black;">
+				<script>
+					let timerID= null;
+					let timerRunning = false;
+					function stopclock(){
+						if(timerRunning)
+							clearTimeout(timerID)
+							timerRunning = false;
+					}
+					function startclock(){
+						stopclock();
+						showtime();
+					}
+					function showtime(){
+						let data_n= new Date();
+						let godz = data_n.getHours();
+						let min = data_n.getMinutes();
+						let sek = data_n.getSeconds();
+						let czas= " "+(godz);
+						czas += ((min<10)?":0":":") + min;
+						czas += ((sek<10)?":0":":") + sek;
+						document.getElementById("zegar").innerHTML = czas;
+						timerID = setTimeout("showtime()",1000);
+						timerRunning = true;
+					}
+				</script>
+				<script>startclock();</script>
+			</div>
+		
+		</div>
+		<div id='calosc'>
+		<div id='lewo'> 
+			<h1><a href='index.html'>Strona główna</a></h1>
+			<br>
+			<h1><a href='strona2.html'>Strona Druga</a></h1>
+	
+		</div>
+		<div id='prawo'>
+			<table border=1px>
+				<tr>
+					<td> 
+						<script>
+						var c =0;
+						while(c++<50){
+							var d=c%2;
+							if(d!=0){
+									document.write(c+"<br>");
+						
+										}
+									}
+						</script>															
+					</td>																							
+					<td>
+						<script>
+						var c =0;
+						while(c++<50){
+							var d=c%2;
+							if(d==0){
+									document.write(c+"<br>");
+						
+										}
+									}
+						</script>
+					</td>
+				</tr>
+			</table>	
+		</div>
+	
+		</div>
+	</body>
+</html>
